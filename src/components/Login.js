@@ -14,6 +14,7 @@ class Login extends Component {
           <br />
           <button type="submit">Sign In</button>
         </form>
+        <span>Forgot your password?</span>
       </div>
     );
   }

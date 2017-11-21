@@ -4,14 +4,40 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
-.Login {
+ul, li {
+  margin: 0;
+  list-style-type: none;
+}
+
+h2 {
+  text-transform: uppercase;
+}
+
+.Login, .Profile {
   width: 500px;
   margin: 30px auto;
   text-align: center;
   background-color: #63CEC2;
   padding: 1em;
+  border-radius: 1em;
 }
 
 .Login input {
   margin: 1em;
+  border-radius: 0.5em;
+  background-color: white;
+}
+
+.Login button {
+  margin-bottom: 1em;
+}
+
+.flex-container {
+  display: flex;
+  text-align: left;
+}
+
+.Profile img {
+  width: 200px;
+  height: 150px;
 }

@@ -13,6 +13,10 @@ class Login extends Component {
   }
 
   render() {
+    if (this.props.userIsAlreadyLoggedIn) {
+      return null;
+    }
+
     return (
       <div className="Login">
         <form onSubmit={this.handleSubmit}>
@@ -58,4 +62,10 @@ class Login extends Component {
 
 const mapActionsToProps = { login };
 
-export default connect(null, mapActionsToProps)(Login);
+const mapStateToProps = (state) => {
+  return {
+    userIsAlreadyLoggedIn: !!state.loggedInUser
+  }
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(Login);

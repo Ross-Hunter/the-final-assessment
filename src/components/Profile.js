@@ -1,35 +1,22 @@
 import React, { Component } from 'react';
-
-// TODO: GET USER FROM REDUX
-const USER = {
-  username: 'indianajones',
-  password: 'coolPassword',
-  name: 'Indiana Jones',
-  email: 'indianajones@gmail.com',
-  img: '/images/indianajones.jpg',
-  location: 'Portland, OR',
-  phone: '333-333-5555'
-}
+import { connect } from 'react-redux';
 
 class Profile extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: USER
-    }
-  }
-
   render() {
+    if (!this.props.user) {
+      return null;
+    }
+
     return (
       <div className="Profile">
         <h2>Profile</h2>
-        <h3>Welcome, {this.state.user.name}</h3>
+        <h3>Welcome, {this.props.user.name}</h3>
         <div className="flex-container">
-          <img src={this.state.user.img} />
+          <img src={this.props.user.img} />
           <ul>
-            <li>Email: {this.state.user.email}</li>
-            <li>Phone Number: {this.state.user.phone}</li>
-            <li>Location: {this.state.user.location}</li>
+            <li>Email: {this.props.user.email}</li>
+            <li>Phone Number: {this.props.user.phone}</li>
+            <li>Location: {this.props.user.location}</li>
           </ul>
         </div>
         <h4>Edit Profile</h4>
@@ -38,4 +25,10 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+const mapStateToProps = (state) => {
+  return {
+    user: state.loggedInUser
+  }
+}
+
+export default connect(mapStateToProps, null)(Profile);

@@ -1,4 +1,6 @@
-const INITIAL_STATE = {};
+const INITIAL_STATE = {
+  loggedInUser: null
+};
 
 export default function (state = INITIAL_STATE, action) {
   switch (action.type) {

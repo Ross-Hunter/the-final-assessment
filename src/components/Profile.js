@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+// TODO: GET USER FROM REDUX
 const USER = {
   username: 'indianajones',
   password: 'coolPassword',
